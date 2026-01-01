@@ -26,7 +26,7 @@
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
-      <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+      <div class="flex h-screen antialiased text-gray-900 bg-gray-100">
         <!-- Loading screen -->
         <div
           x-ref="loading"
@@ -36,18 +36,18 @@
         </div>
 
         <!-- Sidebar -->
-        <aside class="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block">
+        <aside class="flex-shrink-0 hidden w-64 bg-white border-r md:block">
           <div class="flex flex-col h-full">
             <!-- Sidebar links -->
             <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
               <div x-data="{ isActive: true, open: true}">
-                <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
+                <!-- active & hover classes 'bg-primary-100' -->
                 <a
                   href="#"
                   @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
+                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-primary-100"
+                  :class="{'bg-primary-100': isActive || open}"
                   role="button"
                   aria-haspopup="true"
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
@@ -84,12 +84,12 @@
                   </span>
                 </a>
                 <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                  <!-- active & hover classes 'text-gray-700' -->
+                  <!-- inActive classes 'text-gray-400' -->
                   <a
                     href="/macros"
                     role="menuitem"
-                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                    class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md hover:text-gray-700"
                   >
                     Macros
                   </a>
@@ -97,7 +97,7 @@
                   <a
                     href="#"
                     role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
                   >
                     Mis favoritos
                   </a>
@@ -108,12 +108,12 @@
 
               <!-- Components links -->
               <div x-data="{ isActive: false, open: false }">
-                <!-- active classes 'bg-primary-100 dark:bg-primary' -->
+                <!-- active classes 'bg-primary-100' -->
                 <a
                   href="#"
                   @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
+                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-primary-100"
+                  :class="{ 'bg-primary-100': isActive || open }"
                   role="button"
                   aria-haspopup="true"
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
@@ -150,13 +150,13 @@
                   </span>
                 </a>
                 <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                  <!-- active & hover classes 'text-gray-700' -->
+                  <!-- inActive classes 'text-gray-400' -->
                   @foreach ($categorias as $cat)
                   <a
                     href="/categoria/{{ $cat->id }}"
                     role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
                   >
                   {{ $cat->nombre }}
                   </a>    
@@ -171,12 +171,12 @@
                      
                 
                  <div x-data="{ isActive: false, open: false }">
-                  <!-- active classes 'bg-primary-100 dark:bg-primary' -->
+                  <!-- active classes 'bg-primary-100' -->
                   <a
                     href="#"
                     @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
+                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-primary-100"
+                    :class="{ 'bg-primary-100': isActive || open }"
                     role="button"
                     aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'"
@@ -202,12 +202,12 @@
                     </span>
                   </a>
                   <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                    <!-- active & hover classes 'text-gray-700' -->
+                    <!-- inActive classes 'text-gray-400' -->
                     <a
                       href="/admin/users/"
                       role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
                     >
                       Usuarios
                     </a>
@@ -215,7 +215,7 @@
                     <a
                       href="/admin/categorias/"
                       role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
                     >
                       Categorias
                     </a>
@@ -223,7 +223,7 @@
                     <a
                       href="/admin/macros/"
                       role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
                     >
                       Macros
                     </a>
@@ -239,7 +239,7 @@
               <button
                 @click="openSettingsPanel"
                 type="button"
-                class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
+                class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white"
               >
                 <span aria-hidden="true">
                   <svg
@@ -265,12 +265,12 @@
 
         <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
           <!-- Navbar -->
-          <header class="relative bg-white dark:bg-darker">
-            <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
+          <header class="relative bg-white">
+            <div class="flex items-center justify-between p-2 border-b">
               <!-- Mobile menu button -->
               <button
                 @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"
-                class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring"
+                class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 md:hidden focus:outline-none focus:ring"
               >
                 <span class="sr-only">Open main manu</span>
                 <span aria-hidden="true">
@@ -289,7 +289,7 @@
               <!-- Brand -->
               <a
                 href="index.html"
-                class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
+                class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark"
               >
                 {{--  auth()->user()->empresa->nombre --}}
               </a>
@@ -297,7 +297,7 @@
               <!-- Mobile sub menu button -->
               <button
                 @click="isMobileSubMenuOpen = !isMobileSubMenuOpen"
-                class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring"
+                class="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 md:hidden focus:outline-none focus:ring"
               >
                 <span class="sr-only">Open sub manu</span>
                 <span aria-hidden="true">
@@ -323,7 +323,7 @@
                 <!-- Toggle dark theme button -->
                 <button aria-hidden="true" class="relative focus:outline-none" x-cloak @click="toggleTheme">
                   <div
-                    class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-lighter"
+                    class="w-12 h-6 transition rounded-full outline-none bg-primary-100"
                   ></div>
                   <div
                     class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-150 transform scale-110 rounded-full shadow-sm"
@@ -365,7 +365,7 @@
                 <!-- Notification button -->
                 <button
                   @click="openNotificationsPanel"
-                  class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
+                  class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 focus:outline-none focus:bg-primary-100 focus:ring-primary-darker"
                 >
                   <span class="sr-only">Open Notification panel</span>
                   <svg
@@ -388,7 +388,7 @@
                 <!-- Search button -->
                 <button
                   @click="openSearchPanel"
-                  class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
+                  class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 focus:outline-none focus:bg-primary-100 focus:ring-primary-darker"
                 >
                   <span class="sr-only">Abrir panel de búsqueda</span>
                   <svg
@@ -411,7 +411,7 @@
                 <!-- Settings button -->
                 <button
                   @click="openSettingsPanel"
-                  class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
+                  class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 focus:outline-none focus:bg-primary-100 focus:ring-primary-darker"
                 >
                   <span class="sr-only">Open settings panel</span>
                   <svg
@@ -444,7 +444,7 @@
                     type="button"
                     aria-haspopup="true"
                     :aria-expanded="open ? 'true' : 'false'"
-                    class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
+                    class="transition-opacity duration-200 rounded-full focus:outline-none focus:ring"
                   >
                     <span class="sr-only">User menu</span>
                     <img class="w-10 h-10 rounded-full" src="@php echo 'https://www.gravatar.com/avatar/' . md5($user->email ?? 'lcruz@inteligenciae.com') . '?s=44&d=retro'; @endphp" alt="Ahmed Kamel" />
@@ -462,7 +462,7 @@
                     x-transition:leave-end="translate-y-1/2 opacity-0"
                     @click.away="open = false"
                     @keydown.escape="open = false"
-                    class="absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
+                    class="absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 focus:outline-none"
                     tabindex="-1"
                     role="menu"
                     aria-orientation="vertical"
@@ -471,7 +471,7 @@
                     <a
                       href="{{ route('profile.show') }}"
                       role="menuitem"
-                      class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+                      class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
                     >
                       Tu perfil
                     </a>
@@ -481,7 +481,7 @@
   
                       <a
                       href="{{ route('logout') }}"
-                      class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+                      class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
                       @click.prevent="document.querySelector('#myform').submit();"
                       >
                       Salir
@@ -501,14 +501,14 @@
                 x-transition:leave-end="-translate-y-full opacity-0"
                 x-show="isMobileSubMenuOpen"
                 @click.away="isMobileSubMenuOpen = false"
-                class="absolute flex items-center p-4 bg-white rounded-md shadow-lg dark:bg-darker top-16 inset-x-4 md:hidden"
+                class="absolute flex items-center p-4 bg-white rounded-md shadow-lg top-16 inset-x-4 md:hidden"
                 aria-label="Secondary"
               >
                 <div class="space-x-2">
                   <!-- Toggle dark theme button -->
                   <button aria-hidden="true" class="relative focus:outline-none" x-cloak @click="toggleTheme">
                     <div
-                      class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-lighter"
+                      class="w-12 h-6 transition rounded-full outline-none bg-primary-100"
                     ></div>
                     <div
                       class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 transform scale-110 rounded-full shadow-sm"
@@ -550,7 +550,7 @@
                   <!-- Notification button -->
                   <button
                     @click="openNotificationsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
-                    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
+                    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 focus:outline-none focus:bg-primary-100 focus:ring-primary-darker"
                   >
                     <span class="sr-only">Open notifications panel</span>
                     <svg
@@ -573,7 +573,7 @@
                   <!-- Search button -->
                   <button
                     @click="openSearchPanel(); $nextTick(() => { $refs.searchInput.focus(); setTimeout(() => {isMobileSubMenuOpen= false}, 100) })"
-                    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
+                    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 focus:outline-none focus:bg-primary-100 focus:ring-primary-darker"
                   >
                     <span class="sr-only">Open search panel</span>
                     <svg
@@ -596,7 +596,7 @@
                   <!-- Settings button -->
                   <button
                     @click="openSettingsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
-                    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
+                    class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 focus:outline-none focus:bg-primary-100 focus:ring-primary-darker"
                   >
                     <span class="sr-only">Open settings panel</span>
                     <svg
@@ -629,7 +629,7 @@
                     type="button"
                     aria-haspopup="true"
                     :aria-expanded="open ? 'true' : 'false'"
-                    class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
+                    class="block transition-opacity duration-200 rounded-full focus:outline-none focus:ring"
                   >
                     <span class="sr-only">User menu</span>
                     <img class="w-10 h-10 rounded-full" src="@php echo 'https://www.gravatar.com/avatar/' . md5($user->email ?? 'lcruz@inteligenciae.com') . '?s=44&d=retro'; @endphp" alt="" />
@@ -645,7 +645,7 @@
                     x-transition:leave-start="translate-y-0 opacity-100"
                     x-transition:leave-end="translate-y-1/2 opacity-0"
                     @click.away="open = false"
-                    class="absolute right-0 w-48 py-1 origin-top-right bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark"
+                    class="absolute right-0 w-48 py-1 origin-top-right bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5"
                     role="menu"
                     aria-orientation="vertical"
                     aria-label="User menu"
@@ -653,7 +653,7 @@
                     <a
                       href="{{ route('profile.show') }}"
                       role="menuitem"
-                      class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
+                      class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
                     >
                       Tu perfil
                     </a>
@@ -665,19 +665,19 @@
             </div>
             <!-- Mobile main manu -->
             <div
-              class="border-b md:hidden dark:border-primary-darker"
+              class="border-b md:hidden"
               x-show="isMobileMainMenuOpen"
               @click.away="isMobileMainMenuOpen = false"
             >
               <nav aria-label="Main" class="px-2 py-4 space-y-2">
                 <!-- Dashboards links -->
                 <div x-data="{ isActive: true, open: true}">
-                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
+                  <!-- active & hover classes 'bg-primary-100' -->
                   <a
                     href="#"
                     @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
+                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-primary-100"
+                    :class="{'bg-primary-100': isActive || open}"
                     role="button"
                     aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'"
@@ -714,12 +714,12 @@
                     </span>
                   </a>
                   <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                    <!-- active & hover classes 'text-gray-700' -->
+                    <!-- inActive classes 'text-gray-400' -->
                     <a
                       href="/macros"
                       role="menuitem"
-                      class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                      class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md hover:text-gray-700"
                     >
                       Macros
                     </a>
@@ -730,12 +730,12 @@
 
                 <!-- Categorias -->
                 <div x-data="{ isActive: true, open: true}">
-                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
+                  <!-- active & hover classes 'bg-primary-100' -->
                   <a
                     href="#"
                     @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
+                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md hover:bg-primary-100"
+                    :class="{'bg-primary-100': isActive || open}"
                     role="button"
                     aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'"
@@ -772,13 +772,13 @@
                     </span>
                   </a>
                   <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                    <!-- active & hover classes 'text-gray-700' -->
+                    <!-- inActive classes 'text-gray-400' -->
                     @foreach ($categorias as $cat)
                     <a
                       href="/categoria/{{ $cat->id }}"
                       role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md hover:text-gray-700"
                     >
                     {{ $cat->nombre }}
                     </a>    
@@ -798,7 +798,7 @@
             
 
             <!-- Content -->
-            <div class="flex items-center justify-between px-4 py-4 border-b dark:border-primary-darker">
+            <div class="flex items-center justify-between px-4 py-4 border-b">
  
             @yield('content')
               
@@ -847,7 +847,7 @@
           tabindex="-1"
           x-show="isSettingsPanelOpen"
           @keydown.escape="isSettingsPanelOpen = false"
-          class="fixed inset-y-0 right-0 z-20 w-full max-w-xs bg-white shadow-xl dark:bg-darker dark:text-light sm:max-w-md focus:outline-none"
+          class="fixed inset-y-0 right-0 z-20 w-full max-w-xs bg-white shadow-xl sm:max-w-md focus:outline-none"
           aria-labelledby="settinsPanelLabel"
         >
           <div class="absolute left-0 p-2 transform -translate-x-full">
@@ -871,9 +871,9 @@
           <div class="flex flex-col h-screen">
             <!-- Panel header -->
             <div
-              class="flex flex-col items-center justify-center flex-shrink-0 px-4 py-8 space-y-4 border-b dark:border-primary-dark"
+              class="flex flex-col items-center justify-center flex-shrink-0 px-4 py-8 space-y-4 border-b"
             >
-              <span aria-hidden="true" class="text-gray-500 dark:text-primary">
+              <span aria-hidden="true" class="text-gray-500">
                 <svg
                   class="w-8 h-8"
                   xmlns="http://www.w3.org/2000/svg"
@@ -889,19 +889,19 @@
                   />
                 </svg>
               </span>
-              <h2 id="settinsPanelLabel" class="text-xl font-medium text-gray-500 dark:text-light">Settings</h2>
+              <h2 id="settinsPanelLabel" class="text-xl font-medium text-gray-500">Settings</h2>
             </div>
             <!-- Content -->
             <div class="flex-1 overflow-hidden hover:overflow-y-auto">
               <!-- Theme -->
               <div class="p-4 space-y-4 md:p-8">
-                <h6 class="text-lg font-medium text-gray-400 dark:text-light">Mode</h6>
+                <h6 class="text-lg font-medium text-gray-400">Mode</h6>
                 <div class="flex items-center space-x-8">
                   <!-- Light button -->
                   <button
                     @click="setLightTheme"
-                    class="flex items-center justify-center px-4 py-2 space-x-4 transition-colors border rounded-md hover:text-gray-900 hover:border-gray-900 dark:border-primary dark:hover:text-primary-100 dark:hover:border-primary-light focus:outline-none focus:ring focus:ring-primary-lighter focus:ring-offset-2 dark:focus:ring-offset-dark dark:focus:ring-primary-dark"
-                    :class="{ 'border-gray-900 text-gray-900 dark:border-primary-light dark:text-primary-100': !isDark, 'text-gray-500 dark:text-primary-light': isDark }"
+                    class="flex items-center justify-center px-4 py-2 space-x-4 transition-colors border rounded-md hover:text-gray-900 hover:border-gray-900 focus:outline-none focus:ring focus:ring-primary-lighter focus:ring-offset-2"
+                    :class="{ 'border-gray-900 text-gray-900': !isDark, 'text-gray-500': isDark }"
                   >
                     <span>
                       <svg
@@ -925,8 +925,8 @@
                   <!-- Dark button -->
                   <button
                     @click="setDarkTheme"
-                    class="flex items-center justify-center px-4 py-2 space-x-4 transition-colors border rounded-md hover:text-gray-900 hover:border-gray-900 dark:border-primary dark:hover:text-primary-100 dark:hover:border-primary-light focus:outline-none focus:ring focus:ring-primary-lighter focus:ring-offset-2 dark:focus:ring-offset-dark dark:focus:ring-primary-dark"
-                    :class="{ 'border-gray-900 text-gray-900 dark:border-primary-light dark:text-primary-100': isDark, 'text-gray-500 dark:text-primary-light': !isDark }"
+                    class="flex items-center justify-center px-4 py-2 space-x-4 transition-colors border rounded-md hover:text-gray-900 hover:border-gray-900 focus:outline-none focus:ring focus:ring-primary-lighter focus:ring-offset-2"
+                    :class="{ 'border-gray-900 text-gray-900': isDark, 'text-gray-500': !isDark }"
                   >
                     <span>
                       <svg
@@ -951,7 +951,7 @@
 
               <!-- Colors -->
               <div class="p-4 space-y-4 md:p-8">
-                <h6 class="text-lg font-medium text-gray-400 dark:text-light">Colors</h6>
+                <h6 class="text-lg font-medium text-gray-400">Colors</h6>
                 <div>
                   <button
                     @click="setColors('cyan')"
@@ -1017,7 +1017,7 @@
           @keydown.escape="isNotificationsPanelOpen = false"
           tabindex="-1"
           aria-labelledby="notificationPanelLabel"
-          class="fixed inset-y-0 z-20 w-full max-w-xs bg-white dark:bg-darker dark:text-light sm:max-w-md focus:outline-none"
+          class="fixed inset-y-0 z-20 w-full max-w-xs bg-white sm:max-w-md focus:outline-none"
         >
           <div class="absolute right-0 p-2 transform translate-x-full">
             <!-- Close button -->
@@ -1039,7 +1039,7 @@
           <div class="flex flex-col h-screen" x-data="{ activeTabe: 'action' }">
             <!-- Panel header -->
             <div class="flex-shrink-0">
-              <div class="flex items-center justify-between px-4 pt-4 border-b dark:border-primary-darker">
+              <div class="flex items-center justify-between px-4 pt-4 border-b">
                 <h2 id="notificationPanelLabel" class="pb-4 font-semibold">Notificaciones</h2>
             
               </div>
@@ -1081,7 +1081,7 @@
           x-transition:leave-end="-translate-x-full"
           x-show="isSearchPanelOpen"
           @keydown.escape="isSearchPanelOpen = false"
-          class="fixed inset-y-0 z-20 w-full max-w-xs bg-white shadow-xl dark:bg-darker dark:text-light sm:max-w-md focus:outline-none"
+          class="fixed inset-y-0 z-20 w-full max-w-xs bg-white shadow-xl sm:max-w-md focus:outline-none"
         >
           <div class="absolute right-0 p-2 transform translate-x-full">
             <!-- Close button -->
@@ -1103,7 +1103,7 @@
           <div class="flex flex-col h-screen">
             <!-- Panel header (Search input) -->
             <div
-              class="relative flex-shrink-0 px-4 py-8 text-gray-400 border-b dark:border-primary-darker dark:focus-within:text-light focus-within:text-gray-700"
+              class="relative flex-shrink-0 px-4 py-8 text-gray-400 border-b focus-within:text-gray-700"
             >
               <span class="absolute inset-y-0 inline-flex items-center px-4">
                 <svg
@@ -1127,7 +1127,7 @@
                   x-ref="searchInput"
                   name="texto"
                   type="text"
-                  class="w-full py-2 pl-10 pr-4 border rounded-full dark:bg-dark dark:border-transparent dark:text-light focus:outline-none focus:ring"
+                  class="w-full py-2 pl-10 pr-4 border rounded-full focus:outline-none focus:ring"
                   placeholder="Buscar una macro"
                 />
                 

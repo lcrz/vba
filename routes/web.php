@@ -69,3 +69,12 @@ Route::get('macro/ver/{macro}', [MacroController::class , 'show'])->name('macros
 Route::get('macro/editar/{id}', [MacroController::class , 'edit'])->name('macros.edit');
 Route::patch('macro/update/{macro}', [MacroController::class , 'update'])->name('macros.update'); 
 */
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

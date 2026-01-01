@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="w-full">
-                                <thead class="bg-primary text-white  dark:bg-primary dark:text-light">
+                                <thead class="bg-primary text-white ">
                                     <tr class="w-full">
                                         <th class="px-4 py-3">No</th>
                                         
@@ -38,16 +38,16 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                 <tbody class="bg-white dark:bg-darker">
+                                 <tbody class="bg-white">
                                     @foreach ($macros as $macro)
                                         <tr>
-                                            <td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ ++$i }}</td>
+                                            <td class="border border-gray-200 px-4 py-3 ">{{ ++$i }}</td>
                                             
-											<td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ $macro->titulo }}</td>
-											<td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ $macro->descripcion }}</td>
-											<td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ $macro->categoria_id }}</td>
+											<td class="border border-gray-200 px-4 py-3 ">{{ $macro->titulo }}</td>
+											<td class="border border-gray-200 px-4 py-3 ">{{ $macro->descripcion }}</td>
+											<td class="border border-gray-200 px-4 py-3 ">{{ $macro->categoria_id }}</td>
 
-                                            <td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">
+                                            <td class="border border-gray-200 px-4 py-3 ">
                                                 <form action="{{ route('macros.destroy',$macro->id) }}" method="POST">
                                                     <a class="btn btn-sm" href="{{ route('macros.show',$macro->id) }}"><i class="fa fa-fw fa-eye"></i> </a>
                                                     <a class="btn btn-sm" href="{{ route('macros.edit',$macro->id) }}"><i class="fa fa-fw fa-edit"></i> </a>

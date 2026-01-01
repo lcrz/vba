@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="w-full">
-                                <thead class="bg-primary text-white  dark:bg-primary dark:text-light">
+                                <thead class="bg-primary text-white ">
                                     <tr class="w-full">
                                         <th class="px-4 py-3">No</th>
                                         
@@ -38,16 +38,16 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                 <tbody class="bg-white dark:bg-darker">
+                                 <tbody class="bg-white">
                                     @foreach ($users as $user)
                                         <tr>
-                                            <td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ ++$i }}</td>
+                                            <td class="border border-gray-200 px-4 py-3 ">{{ ++$i }}</td>
                                             
-											<td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ $user->name }}</td>
-											<td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ $user->email }}</td>
-											<td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">{{ $user->admin }}</td>
+											<td class="border border-gray-200 px-4 py-3 ">{{ $user->name }}</td>
+											<td class="border border-gray-200 px-4 py-3 ">{{ $user->email }}</td>
+											<td class="border border-gray-200 px-4 py-3 ">{{ $user->admin }}</td>
 
-                                            <td class="border border-gray-200 px-4 py-3 dark:border-gray-700 ">
+                                            <td class="border border-gray-200 px-4 py-3 ">
                                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
                                                     <a class="" href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> </a>
                                                     <a class="" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i></a>
