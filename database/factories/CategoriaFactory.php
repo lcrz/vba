@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Categoria>
@@ -16,8 +17,12 @@ class CategoriaFactory extends Factory
      */
     public function definition()
     {
+        $nombre = $this->faker->unique()->sentence(2);
         return [
-            //
+            'nombre' => $nombre,
+            'slug' => Str::slug($nombre),
+            'descripcion' => $this->faker->text(100),
+            'activa' => $this->faker->boolean(80),
         ];
     }
 }
