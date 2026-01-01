@@ -54,11 +54,15 @@
 
 <<<<<<< HEAD
                         <x-jet-input id="code" type="text" name="code" class="block mt-1 w-1/2" inputmode="numeric" autofocus autocomplete="one-time-code"
+<<<<<<< HEAD
                             wire:model.defer="code"
 =======
                         <x-input id="code" type="text" name="code" class="block mt-1 w-1/2" inputmode="numeric" autofocus autocomplete="one-time-code"
                             wire:model="code"
 >>>>>>> 51d9a97 (upgrade)
+=======
+                            wire:model="code"
+>>>>>>> 887d306b7427848e0aae5a7a438748b11ce1cd8d
                             wire:keydown.enter="confirmTwoFactorAuthentication" />
 
                         <x-input-error for="code" class="mt-2" />
