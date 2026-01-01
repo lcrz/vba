@@ -32,27 +32,28 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    
-    
-    Route::get('dashboard', [MacroController::class , 'macros']);
 
-    Route::get('macro/{macro}', [MacroController::class , 'show'])->whereNumber('macro');    
-    Route::get('categoria/{categoria}', [MacroController::class , 'categoria'])->whereNumber('categoria');
-    Route::post('resultado', [MacroController::class , 'busqueda']);
-    Route::get('macros', [MacroController::class , 'macros']);
 
-    Route::resource('admin/macros', MacroController::class);  
-    Route::resource('admin/categorias', CategoriaController::class);  
-    Route::resource('admin/users', UserController::class);  
+    Route::get('dashboard', [MacroController::class, 'macros']);
+
+    Route::get('macro/{macro}', [MacroController::class, 'show'])->whereNumber('macro');
+    Route::get('categoria/{categoria}', [MacroController::class, 'categoria'])->whereNumber('categoria');
+    Route::post('resultado', [MacroController::class, 'busqueda']);
+    Route::get('macros', [MacroController::class, 'macros']);
+
+    Route::resource('admin/macros', MacroController::class);
+    Route::resource('admin/categorias', CategoriaController::class);
+    Route::resource('admin/users', UserController::class);
 });
 
-Route::get('auth/google', [LoginController::class , 'redirectToGoogle']);
+Route::get('auth/google', [LoginController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallback']);
-Route::get('/', function(){
+Route::get('/', function () {
     return view('layouts.landing');
 });
-Route::get('stats', 
-    function(){
+Route::get(
+    'stats',
+    function () {
         return view('macro.stats');
     }
 
@@ -69,12 +70,3 @@ Route::get('macro/ver/{macro}', [MacroController::class , 'show'])->name('macros
 Route::get('macro/editar/{id}', [MacroController::class , 'edit'])->name('macros.edit');
 Route::patch('macro/update/{macro}', [MacroController::class , 'update'])->name('macros.update'); 
 */
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
