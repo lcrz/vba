@@ -25,6 +25,9 @@ class StoreCategoriaRequest extends FormRequest
     {
         return [
             'nombre' => 'required|unique:categorias|max:255',
+            'slug' => 'required|max:255',
+            'descripcion' => 'nullable|string',
+            'activa' => 'boolean',
         ];
     }
 }
