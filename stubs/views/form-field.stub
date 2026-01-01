@@ -1,0 +1,6 @@
+        <div class="form-group">
+            <label class="block" for="{{column}}" >{{column}}  </label>                   
+            <input class="inp" type="text" id="{{column}}" name="{{column}}" placeholder="" value="{{ ${{modelNameLowerCase}}->{{column}} ?? ''}}">                 
+                
+            {!! $errors->first('{{column}}', '<div class="invalid-feedback">:message</div>') !!}
+        </div>

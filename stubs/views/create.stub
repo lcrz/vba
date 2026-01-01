@@ -1,0 +1,11 @@
+@extends('layouts.main')
+@section('content')
+    <div class="w-full">
+        <h2>{{__('Create')}} {{modelTitle}}</h2>
+
+        <form method="POST" action="{{ route('{{modelRoute}}.store') }}"  role="form" enctype="multipart/form-data">
+            @csrf
+            @include('{{modelView}}.form')
+        </form>                 
+    </div>
+@endsection

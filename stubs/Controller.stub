@@ -1,0 +1,111 @@
+<?php
+
+namespace {{controllerNamespace}};
+
+use {{modelNamespace}}\{{modelName}};
+use Illuminate\Http\Request;
+use App\Http\Requests\Store{{modelName}}Request;
+use App\Http\Requests\Update{{modelName}}Request;
+use Illuminate\Support\Facades\DB;
+
+/**
+ * Class {{modelName}}Controller
+ * @package App\Http\Controllers
+ */
+class {{modelName}}Controller extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::paginate(10);
+
+        return view('{{modelView}}.index', compact('{{modelNamePluralLowerCase}}'))
+            ->with('i', (request()->input('page', 1) - 1) * ${{modelNamePluralLowerCase}}->perPage());
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        ${{modelNameLowerCase}} = new {{modelName}}();
+        return view('{{modelView}}.create', compact('{{modelNameLowerCase}}'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Store{{modelName}}Request $request)
+    {
+        $request->validate( $request->rules() );
+        
+        {{modelName}}::create($request->all());
+        return redirect()->route('{{modelRoute}}.index')
+            ->with('success', '{{modelName}} created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        ${{modelNameLowerCase}} = {{modelName}}::find($id);
+
+        return view('{{modelView}}.show', compact('{{modelNameLowerCase}}'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        ${{modelNameLowerCase}} = {{modelName}}::find($id);
+
+        return view('{{modelView}}.edit', compact('{{modelNameLowerCase}}'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  {{modelName}} ${{modelNameLowerCase}}
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Update{{modelName}}Request $request, {{modelName}} ${{modelNameLowerCase}})
+    {
+        $request->validate( $request->rules() );
+
+        ${{modelNameLowerCase}}->update($request->all());
+
+        return redirect()->route('{{modelRoute}}.index')
+            ->with('success', '{{modelName}} ' . __('updated successfully'));
+    }
+
+    /**
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy($id)
+    {
+        ${{modelNameLowerCase}} = {{modelName}}::find($id)->delete();
+
+        return redirect()->route('{{modelRoute}}.index')
+            ->with('success', '{{modelName}} deleted successfully');
+    }
+}

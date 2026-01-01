@@ -1,0 +1,13 @@
+@extends('layouts.main')
+@section('content')
+    
+    <div class="w-full">      
+        @includeif('partials.errors')           
+        <h2>{{__('Update')}} {{modelTitle}}</h2>            
+        <form method="POST" action="{{ route('{{modelRoute}}.update', ${{modelNameLowerCase}}->id) }}"  role="form" enctype="multipart/form-data">
+            {{ method_field('PATCH') }}
+            @csrf
+            @include('{{modelView}}.form')
+        </form>                    
+    </div>  
+@endsection
